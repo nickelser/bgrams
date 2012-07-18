@@ -1,0 +1,76 @@
+- content_for :stylesheets do
+  = include_stylesheets "game"
+  
+- content_for :head_js do
+  - if player_signed_in?
+    :javascript
+      _settings = {logged_in:1, ready:#{@game.player_ready?(current_player) ? 1 : 0}, channel:"#{@game.channel_name}", api_key:"#{Pusher.key}", game_id:#{@game.private? ? "\"#{@game.id.to_s}\"" : @game.short_id}, player_id:"#{current_player.id}", game_state:#{@game.state}#{", debug:true" if Rails.env.development?}};
+  - else
+    :javascript
+      _settings = {logged_in:0};
+
+- content_for :tail_js do  
+  - if Rails.env.development?
+    =# javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"
+    = include_javascripts "game_dev"
+    = coffeescript_include_tag "common", "game"
+  - else
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"
+    = include_javascripts "game"
+
+- unless player_signed_in?
+  = render 'shared/login'
+- else 
+  #not_started_overlay
+  #how_to_play
+    %h2 how to play
+    %p
+      After every player hits 'ready,' the game will start and y'all will get 21 tiles.
+      You should be trying to place all your tiles onto the board - Scrabble-style - until there are none left.
+    %p
+      :plain
+        New tiles (from the common pile) are placed in your <a rel='#rack'>rack</a>.
+        <span class='tooltip'><span>rack</span></span>
+    %p
+      :plain
+        After you have placed your initial batch of tiles, hit the <a rel='#pgram_button'>peel</a>
+        <span class='tooltip'><span>peel</span></span> button to submit the board for review.
+        If it's valid (normal scrabble rules apply), everyone will be given one more tile.
+    %p
+      :plain
+        If you want to discard a tile, drag it to the <a rel='#dump'>dump</a>
+        <span class='tooltip'><span>dump</span></span> to exchange it for <b>three</b> tiles from the common pile.
+    %p
+      As soon as there are less tiles in the common pile than players, the 'peel' button will turn into a
+      'bgrams' button. <b>Hit it to win!</b>
+
+#top_menu
+  #title bgrams
+  #pgram_button.disabled
+    %span{:id => 'pgram_action'} peel
+    #game_progress
+      
+  #rack_wrapper
+    #rack
+    #dump
+
+#board_wrapper
+  #board
+
+- if player_signed_in?
+  #game_status_wrapper
+    #game_status
+      #players_ready_wrapper
+        %span{:id => 'players_ready'}= @game.ready_players
+        \/
+        %span{:id => 'total_players'}= @game.lobby_players.length
+        ready
+        %button{:id => 'ready', :class => 'not_ready'} ready
+  
+#chat_wrapper
+  #chat
+    #chatter
+    = text_field_tag 'chat_input'
+
+#players_left
+#players_right

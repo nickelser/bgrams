@@ -1,0 +1,23 @@
+defaults: &defaults
+  host: localhost
+  autocreate_indexes: false
+  allow_dynamic_fields: false
+  include_root_in_json: false
+  parameterize_keys: true
+  persist_in_safe_mode: false
+  raise_not_found_error: true
+  use_utc: true
+  reconnect_time: 3
+
+development:
+  <<: *defaults
+  database: bgrams_development
+
+test:
+  <<: *defaults
+  database: bgrams_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  database: bgrams_production

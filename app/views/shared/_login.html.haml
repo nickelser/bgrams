@@ -1,0 +1,42 @@
+#login_box
+  #login_message
+  #log_in
+    %h3 log in
+    = form_tag new_player_session_path(:format => 'json'), :id => 'do_login' do
+      #login_errors{:class => 'error'}
+      %p
+        = label_tag 'player_username_1', 'username'
+        = text_field_tag 'player[username]', '', :id => 'player_username_1'
+      %p
+        = label_tag 'player_password_1', 'password'
+        = password_field_tag 'player[password]', '', :id => 'player_password_1'
+      %p
+        = label_tag 'player_remember_me_1', 'remember me', :class => 'checkbox_label'
+        = check_box_tag 'player[remember_me]', 1, true, :id => 'player_remember_me_1'
+      %button login
+      
+    = link_to player_omniauth_authorize_path(:facebook), :id => 'fb_login', :class => 'fb_button' do
+      %span{:class => 'fb_button_text'} log in with facebook
+
+  #sign_up
+    %h3 sign up
+    = form_tag '/players.json', :id => 'do_register' do |f|
+      %p
+        = label_tag 'player_username_2', 'username'
+        %span{:id => 'username_error', :class => 'error'}
+        = text_field_tag 'player[username]', '', :id => 'player_username_2'
+      %p
+        = label_tag 'player_email', 'email (optional, for spam)'
+        %span{:id => 'email_error', :class => 'error'}
+        = text_field_tag 'player[email]'
+      %p
+        = label_tag 'player_password_2', 'password'
+        %span{:id => 'password_error', :class => 'error'}
+        = password_field_tag 'player[password]', '', :id => 'player_password_2'
+      %p
+        = label_tag 'player_password_confirmation', 'password (again)'
+        = password_field_tag 'player[password_confirmation]'
+      %p
+        = label_tag 'player_remember_me_2', 'remember me', :class => 'checkbox_label'
+        = check_box_tag 'player[remember_me]', 1, true, :id => 'player_remember_me_2'
+      %button sign up

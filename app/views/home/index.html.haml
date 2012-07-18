@@ -1,0 +1,40 @@
+- content_for :stylesheets do
+  = include_stylesheets "index"
+  
+- content_for :head_js do
+  :javascript
+    _settings = {logged_in:#{player_signed_in? ? 1 : 0}#{", debug:true" if Rails.env.development?}};
+
+- content_for :tail_js do
+  - if Rails.env.development?
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"
+    = include_javascripts "index_dev"
+    = coffeescript_include_tag "common", "index"
+  - else
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"
+    = include_javascripts "index"
+
+- unless player_signed_in?
+  = render 'shared/login'
+
+#top_menu
+  #title bgrams
+
+#game_list_wrapper
+  #game_list
+    %h2 joinable games
+    .the_games
+      - @games.each do |g|
+        .game
+          = link_to "#{g[:game].name}", join_game_path(g[:game].short_id), :class => 'game_link'
+          %span (#{pluralize(g[:players], 'player')})
+    - unless @your_games.blank?
+      %h2 your games
+      .the_games
+        - @your_games.each do |game|
+          .game
+            = link_to "#{game.name}", join_game_path(game.short_id), :class => 'game_link'
+            %span (#{pluralize(game.players.count, 'player')})
+  - if player_signed_in?
+    #new_private_game
+      = link_to "make a private game", new_private_game_path

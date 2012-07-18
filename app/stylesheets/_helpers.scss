@@ -1,0 +1,67 @@
+@import "compass/css3/border-radius";
+
+// Sets the font size specified in pixels using percents so that the base
+// font size changes and 1em has the correct value. When nesting font size
+// declarations, within the DOM tree, the base_font_size must be the parent's
+// effective font-size in pixels.
+// Usage Examples:
+//   .big
+//     +font-size(16px)
+//   .bigger
+//     +font-size(18px)
+//   .big .bigger
+//     +font-size(18px, 16px)
+//
+// For more information see the table found at http://developer.yahoo.com/yui/3/cssfonts/#fontsize
+@mixin font-size($size, $base-font-size: $base-font-size) {
+  font-size: ceil(percentage($size / $base-font-size));
+}
+
+//
+// HELPERS
+//
+
+// Almost the same as compass replace-text
+// but adding direction: ltr
+@mixin image-replacement($img: none, $x: 50%, $y: 50%) {
+  @include hide-text;
+  direction: ltr;
+  background-repeat: no-repeat;
+  @if $img != none {
+    background-image: image-url($img);
+    background-position: $x $y;
+  }
+}
+
+@mixin sized-image-replacement($img, $x: 50%, $y: 50%) {
+  @include image-replacement($img, $x, $y);
+  width: image-width($img);
+  height: image-height($img);
+}
+
+// Hide for both screenreaders and browsers
+// css-discuss.incutio.com/wiki/Screenreader_Visibility
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: by Jon Neal
+// www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden
+@mixin visually-hidden {
+  border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;
+}
+
+// Hide visually and from screenreaders, but maintain layout
+@mixin invisible { visibility: hidden; }
+
+// rounded borders
+@mixin bordered($radius: 4px, $width: 1px, $color: #ccc) {
+  border: {
+    style: solid;
+    width: $width;
+    color: $color;
+  }
+  
+  @include border-radius($radius);
+}

@@ -1,0 +1,715 @@
+/* line 19, ../../../app/stylesheets/game.scss */
+.tile {
+  height: 30px;
+  width: 30px;
+}
+
+/* line 25, ../../../app/stylesheets/game.scss */
+html, body, #content, #board_wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 31, ../../../app/stylesheets/game.scss */
+#board_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 102px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #000;
+}
+/* line 43, ../../../app/stylesheets/game.scss */
+#board_wrapper #board {
+  cursor: move;
+  width: 1920px;
+  height: 1920px;
+  background: #5f2d06 url("/images/grid_bg.png") repeat left top;
+  z-index: 4;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 51, ../../../app/stylesheets/game.scss */
+#board_wrapper #board .tile {
+  position: absolute;
+}
+
+/* line 57, ../../../app/stylesheets/game.scss */
+.tile {
+  background-color: #e8c500;
+  cursor: move;
+  float: left;
+  z-index: 90;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 64, ../../../app/stylesheets/game.scss */
+.tile .letter {
+  font-size: 25px;
+  line-height: 32px;
+  text-align: center;
+  color: #000;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* line 74, ../../../app/stylesheets/game.scss */
+#top_menu {
+  width: 100%;
+  height: 102px;
+  display: block;
+  background-color: #fff;
+  z-index: 10;
+}
+/* line 83, ../../../app/stylesheets/game.scss */
+#top_menu #title {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: #000;
+  font-size: 60px;
+  text-shadow: #1C315B 2px 2px;
+}
+/* line 93, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  width: 180px;
+  display: inline-block;
+  background-color: #fff;
+  overflow: visible;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-background-clip: padding-box;
+  outline: none;
+  height: 70px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cacaca;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 111, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button.disabled {
+  opacity: 0.2;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+}
+/* line 117, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button .loading {
+  background-image: url(/images/ajax-loader.gif);
+  width: 32px;
+  height: 32px;
+  margin: 20px auto;
+  z-index: 3;
+  position: absolute;
+  top: 5px;
+  left: 40%;
+}
+/* line 128, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button:hover {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #777777;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 132, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button:active {
+  right: 28px;
+  top: 19px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #11dd00;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 138, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button #pgram_action {
+  position: absolute;
+  left: 40px;
+  font-size: 55px;
+  line-height: 55px;
+  color: #444;
+  text-shadow: 1px 1px 0 #444;
+  white-space: nowrap;
+  z-index: 2;
+}
+/* line 148, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button #pgram_action:active {
+  top: -1px;
+}
+/* line 153, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button #pgram_progress_str {
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+  top: 50px;
+  left: 65px;
+  z-index: 4;
+  color: #bbb;
+}
+/* line 162, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button #pgram_progress_str:active {
+  top: -10px;
+}
+/* line 167, ../../../app/stylesheets/game.scss */
+#top_menu #pgram_button #game_progress {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  top: 1px;
+  height: 68px;
+  background-color: #ffff66;
+  border-style: solid;
+  border-width: 0;
+  border-color: black;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 183, ../../../app/stylesheets/game.scss */
+#top_menu #rack_wrapper {
+  height: 80px;
+  margin: 10px auto;
+  width: 612px;
+  z-index: 11;
+}
+/* line 189, ../../../app/stylesheets/game.scss */
+#top_menu #rack_wrapper #dump {
+  float: left;
+  width: 90px;
+  height: 84px;
+  background-color: #a00;
+  line-height: 80px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ccc;
+  -moz-border-radius-topright: 30px;
+  -webkit-border-top-right-radius: 30px;
+  -o-border-top-right-radius: 30px;
+  -ms-border-top-right-radius: 30px;
+  -khtml-border-top-right-radius: 30px;
+  border-top-right-radius: 30px;
+  -moz-border-radius-bottomright: 30px;
+  -webkit-border-bottom-right-radius: 30px;
+  -o-border-bottom-right-radius: 30px;
+  -ms-border-bottom-right-radius: 30px;
+  -khtml-border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  -moz-box-shadow: black 2px 2px 5px 0;
+  -webkit-box-shadow: black 2px 2px 5px 0;
+  -o-box-shadow: black 2px 2px 5px 0;
+  box-shadow: black 2px 2px 5px 0;
+}
+/* line 206, ../../../app/stylesheets/game.scss */
+#top_menu #rack_wrapper #dump .loading {
+  background-image: url(/images/ajax-loader.gif);
+  width: 32px;
+  height: 32px;
+  margin: 25px auto;
+  z-index: 3;
+  opacity: 0.35;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=35);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=35);
+}
+/* line 216, ../../../app/stylesheets/game.scss */
+#top_menu #rack_wrapper #rack {
+  width: 496px;
+  height: 80px;
+  float: left;
+  padding: 4px 0 0 18px;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: black 2px 2px 5px 0;
+  -webkit-box-shadow: black 2px 2px 5px 0;
+  -o-box-shadow: black 2px 2px 5px 0;
+  box-shadow: black 2px 2px 5px 0;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ccc;
+  -moz-border-radius-topleft: 30px;
+  -webkit-border-top-left-radius: 30px;
+  -o-border-top-left-radius: 30px;
+  -ms-border-top-left-radius: 30px;
+  -khtml-border-top-left-radius: 30px;
+  border-top-left-radius: 30px;
+  -moz-border-radius-bottomleft: 30px;
+  -webkit-border-bottom-left-radius: 30px;
+  -o-border-bottom-left-radius: 30px;
+  -ms-border-bottom-left-radius: 30px;
+  -khtml-border-bottom-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+/* line 235, ../../../app/stylesheets/game.scss */
+#top_menu #rack_wrapper #rack .tile {
+  margin: 2px;
+  width: 32px;
+  height: 32px;
+  font-size: 139%;
+}
+
+/* line 248, ../../../app/stylesheets/game.scss */
+#chat_wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 110;
+}
+/* line 254, ../../../app/stylesheets/game.scss */
+#chat_wrapper #chat {
+  width: 575px;
+  height: 120px;
+  margin: 0 auto;
+}
+/* line 260, ../../../app/stylesheets/game.scss */
+#chat_wrapper #chat #chatter {
+  height: 85px;
+  width: 574px;
+  overflow-y: scroll;
+  background-color: #bbb;
+  margin-bottom: 2px;
+  -moz-box-shadow: white 2px 2px 5px 0;
+  -webkit-box-shadow: white 2px 2px 5px 0;
+  -o-box-shadow: white 2px 2px 5px 0;
+  box-shadow: white 2px 2px 5px 0;
+  opacity: 0.8;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cccccc;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 271, ../../../app/stylesheets/game.scss */
+#chat_wrapper #chat #chatter .message .name {
+  font-weight: bold;
+}
+/* line 276, ../../../app/stylesheets/game.scss */
+#chat_wrapper #chat #chat_input {
+  width: 574px;
+  font-size: 18px;
+  height: 18px;
+}
+
+/* line 284, ../../../app/stylesheets/game.scss */
+#game_status_wrapper {
+  display: none;
+  position: fixed;
+  bottom: 117px;
+  width: 100%;
+  z-index: 110;
+}
+/* line 291, ../../../app/stylesheets/game.scss */
+#game_status_wrapper #game_status {
+  margin: 0 auto;
+  background-color: #bbb;
+  width: 570px;
+  height: 60px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ccc;
+  -moz-box-shadow: white 2px 2px 5px 0;
+  -webkit-box-shadow: white 2px 2px 5px 0;
+  -o-box-shadow: white 2px 2px 5px 0;
+  box-shadow: white 2px 2px 5px 0;
+  -moz-border-radius-topleft: 30px;
+  -webkit-border-top-left-radius: 30px;
+  -o-border-top-left-radius: 30px;
+  -ms-border-top-left-radius: 30px;
+  -khtml-border-top-left-radius: 30px;
+  border-top-left-radius: 30px;
+  -moz-border-radius-topright: 30px;
+  -webkit-border-top-right-radius: 30px;
+  -o-border-top-right-radius: 30px;
+  -ms-border-top-right-radius: 30px;
+  -khtml-border-top-right-radius: 30px;
+  border-top-right-radius: 30px;
+}
+/* line 307, ../../../app/stylesheets/game.scss */
+#game_status_wrapper #game_status #players_ready_wrapper {
+  font-size: 45px;
+  color: #000;
+  text-align: center;
+}
+/* line 312, ../../../app/stylesheets/game.scss */
+#game_status_wrapper #game_status #players_ready_wrapper #ready {
+  font-size: 40px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cccccc;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 316, ../../../app/stylesheets/game.scss */
+#game_status_wrapper #game_status #players_ready_wrapper #ready.not_ready:hover {
+  background-color: #0b0;
+  color: #000;
+}
+
+/* line 329, ../../../app/stylesheets/game.scss */
+#players_left {
+  left: 0;
+  margin-left: 8px;
+}
+
+/* line 334, ../../../app/stylesheets/game.scss */
+#players_right {
+  right: 0;
+  margin-right: 10px;
+}
+
+/* line 339, ../../../app/stylesheets/game.scss */
+#players_left, #players_right {
+  position: fixed;
+  width: 165px;
+  margin-top: 95px;
+  top: 0;
+  z-index: 11;
+}
+/* line 346, ../../../app/stylesheets/game.scss */
+#players_left .tile, #players_right .tile {
+  width: 10px;
+  height: 10px;
+  cursor: default;
+  float: left;
+}
+/* line 352, ../../../app/stylesheets/game.scss */
+#players_left .tile .letter, #players_right .tile .letter {
+  font-size: 11px;
+  line-height: 11px;
+}
+/* line 358, ../../../app/stylesheets/game.scss */
+#players_left .player, #players_right .player {
+  display: block;
+  float: left;
+  width: 165px;
+  padding-top: 10px;
+}
+/* line 364, ../../../app/stylesheets/game.scss */
+#players_left .player .name_wrapper, #players_right .player .name_wrapper {
+  text-align: center;
+  position: relative;
+  top: 8px;
+  z-index: 12;
+}
+/* line 370, ../../../app/stylesheets/game.scss */
+#players_left .player .name_wrapper .name, #players_right .player .name_wrapper .name {
+  display: inline;
+  margin: 0;
+  background: #fff;
+  color: #800;
+  font-weight: bold;
+  padding: 2px 7px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cccccc;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -o-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -khtml-border-radius: 12px;
+  border-radius: 12px;
+  height: 16px;
+  font-size: 12px;
+}
+/* line 382, ../../../app/stylesheets/game.scss */
+#players_left .player .name_wrapper .name.online, #players_right .player .name_wrapper .name.online {
+  color: #080;
+}
+/* line 388, ../../../app/stylesheets/game.scss */
+#players_left .player .board_wrapper, #players_right .player .board_wrapper {
+  display: block;
+  width: 165px;
+  height: 165px;
+  float: left;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cccccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: black 2px 2px 8px 0;
+  -webkit-box-shadow: black 2px 2px 8px 0;
+  -o-box-shadow: black 2px 2px 8px 0;
+  box-shadow: black 2px 2px 8px 0;
+  z-index: 11;
+}
+/* line 399, ../../../app/stylesheets/game.scss */
+#players_left .player .board_wrapper .board, #players_right .player .board_wrapper .board {
+  position: relative;
+  width: 600px;
+  height: 600px;
+}
+/* line 405, ../../../app/stylesheets/game.scss */
+#players_left .player .board_wrapper .board .tile .letter, #players_right .player .board_wrapper .board .tile .letter {
+  font-size: 10px;
+  line-height: 10px;
+}
+/* line 413, ../../../app/stylesheets/game.scss */
+#players_left .player .letter_wrapper, #players_right .player .letter_wrapper {
+  width: 165px;
+  height: 28px;
+  overflow: hidden;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-style: solid;
+  border-width: 0px;
+  border-color: #cccccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  padding-top: 2px;
+  margin-left: 3px;
+}
+/* line 423, ../../../app/stylesheets/game.scss */
+#players_left .player .letter_wrapper .letters, #players_right .player .letter_wrapper .letters {
+  margin: 0 5px;
+}
+/* line 426, ../../../app/stylesheets/game.scss */
+#players_left .player .letter_wrapper .letters .tile, #players_right .player .letter_wrapper .letters .tile {
+  margin: 1px 1px;
+}
+
+/* line 434, ../../../app/stylesheets/game.scss */
+#not_started_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: #444;
+  cursor: default;
+  overflow: hidden;
+  opacity: 0.75;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
+  zoom: 1;
+}
+
+/* line 448, ../../../app/stylesheets/game.scss */
+#winner_overlay, #how_to_play {
+  display: none;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cccccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  z-index: 101;
+}
+
+/* line 455, ../../../app/stylesheets/game.scss */
+#winner_overlay {
+  width: 600px;
+  height: 400px;
+}
+/* line 459, ../../../app/stylesheets/game.scss */
+#winner_overlay .name_wrapper {
+  text-align: center;
+  position: relative;
+  top: 8px;
+  height: 50px;
+}
+/* line 465, ../../../app/stylesheets/game.scss */
+#winner_overlay .name_wrapper .name {
+  display: inline;
+  margin: 0;
+  background: #fff;
+  color: #800;
+  padding: 2px 7px;
+}
+/* line 473, ../../../app/stylesheets/game.scss */
+#winner_overlay .name_wrapper .big.name, #winner_overlay .name_wrapper .selected.name {
+  font-weight: bold;
+}
+/* line 477, ../../../app/stylesheets/game.scss */
+#winner_overlay .name_wrapper .big.name {
+  font-size: 35px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cccccc;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -o-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -khtml-border-radius: 12px;
+  border-radius: 12px;
+}
+/* line 482, ../../../app/stylesheets/game.scss */
+#winner_overlay .name_wrapper .winner.name {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ffd700;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -o-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -khtml-border-radius: 12px;
+  border-radius: 12px;
+}
+/* line 487, ../../../app/stylesheets/game.scss */
+#winner_overlay .names.name_wrapper {
+  height: 30px;
+}
+/* line 491, ../../../app/stylesheets/game.scss */
+#winner_overlay .board_wrapper {
+  width: 597px;
+  height: 317px;
+  overflow: hidden;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cccccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+}
+/* line 499, ../../../app/stylesheets/game.scss */
+#winner_overlay .board_wrapper .board {
+  display: none;
+  cursor: move;
+  position: relative;
+  width: 1440px;
+  height: 1440px;
+  z-index: 4;
+}
+/* line 509, ../../../app/stylesheets/game.scss */
+#winner_overlay .board_wrapper .board .tile {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+/* line 515, ../../../app/stylesheets/game.scss */
+#winner_overlay .board_wrapper .board .tile .letter {
+  font-size: 24px;
+  line-height: 24px;
+}
+
+/* line 524, ../../../app/stylesheets/game.scss */
+#how_to_play {
+  width: 620px;
+  padding: 10px;
+}
+/* line 528, ../../../app/stylesheets/game.scss */
+#how_to_play h2 {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 3px;
+  padding-bottom: 4px;
+}
+/* line 536, ../../../app/stylesheets/game.scss */
+#how_to_play p {
+  padding: 4px;
+}
+/* line 540, ../../../app/stylesheets/game.scss */
+#how_to_play a {
+  padding: 0 2px;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 545, ../../../app/stylesheets/game.scss */
+#how_to_play a:hover {
+  cursor: pointer;
+}
+
+/* line 551, ../../../app/stylesheets/game.scss */
+#flashes {
+  display: none;
+}
+
+/* line 555, ../../../app/stylesheets/game.scss */
+.tooltip {
+  display: none;
+  background: transparent url(/images/black_arrow_bottom.png);
+  height: 70px;
+  width: 160px;
+  padding: 25px;
+  position: absolute;
+  z-index: 105;
+  text-align: center;
+}
+/* line 565, ../../../app/stylesheets/game.scss */
+.tooltip span {
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 80px;
+}
+
+/* line 573, ../../../app/stylesheets/game.scss */
+.effect_text {
+  color: #fff;
+  position: absolute;
+  font-size: 20px;
+  line-height: 20px;
+  z-index: 8888;
+}

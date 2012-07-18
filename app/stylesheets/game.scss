@@ -1,0 +1,579 @@
+@import "boilerplate";
+@import "compass/css3/opacity";
+@import "compass/css3/box-shadow";
+
+$tile-width: 32px;
+$tile-height: 32px;
+$rack-height: 80px;
+$top-menu-height: 102px;
+$control-height: 30px;
+$num-tiles: 60;
+$winner-tile-dim: 24px;
+
+@mixin tile {
+  width: $tile-width;
+  height: $tile-height;
+}
+
+// needed as the draggables are appended to the body
+.tile {
+  height: $tile-width - 2px;
+  width: $tile-width - 2px;
+}
+
+
+html, body, #content, #board_wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#board_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: $top-menu-height;
+  
+  border-top: {
+    style: solid;
+    width: 2px;
+    color: #000;
+  }
+  
+  #board {
+    cursor: move;
+    width: $num-tiles*$tile-width;
+    height: $num-tiles*$tile-height;
+    background: #5F2D06 url('/images/grid_bg.png') repeat left top;
+    z-index: 4;
+    @include bordered;
+    
+    .tile {
+      position: absolute;
+    }
+  }
+}
+
+.tile {
+  background-color: #e8c500;
+  cursor: move;
+  float: left;
+  z-index: 90;
+  @include bordered(2px);
+  
+  .letter {
+    font-size: 25px;
+    line-height: $tile-height;
+    text-align: center;
+    color: #000;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+#top_menu {
+  width: 100%;
+  height: $top-menu-height;
+  display: block;
+  //background-color: rgba(0, 0, 0, 0.45);
+  //background-color: #1C315B;
+  background-color: #fff;
+  z-index: 10;
+  
+  #title {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    //color: #1C315B;
+    color: #000;
+    font-size: 60px;
+    text-shadow: #1C315B 2px 2px;
+  }
+  
+  #pgram_button {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    width: 180px;
+    display: inline-block;
+    //padding: 5px 18px 5px 18px;
+    //padding: 0 2px;
+    background-color: #fff;
+    overflow: visible;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-background-clip: padding-box;
+    outline: none;
+    //position: relative;
+    height: 70px;
+    @include bordered(5px, 1px, #cacaca);
+    
+    &.disabled {
+      @include opacity(0.2);
+    }
+    &.disabled:hover {}
+    &.disabled:active {}
+    
+    .loading {
+      background-image: url(/images/ajax-loader.gif);
+      width: 32px;
+      height: 32px;
+      margin: 20px auto;
+      z-index: 3;
+      position: absolute;
+      top: 5px;
+      left: 40%;
+    }
+    
+    &:hover {
+      @include bordered(5px, 1px, #777);
+    }
+    
+    &:active {
+      right: 28px;
+      top: 19px;
+      @include bordered(5px, 3px, #11dd00);
+    }
+    
+    #pgram_action {
+      position: absolute;
+      left: 40px;
+      font-size: 55px;
+      line-height: 55px;
+      color: #444;
+      text-shadow: 1px 1px 0 #444;
+      white-space: nowrap;
+      z-index: 2;
+      
+      &:active {
+        top: -1px;
+      }
+    }
+
+    #pgram_progress_str {
+      position: absolute;
+      font-size: 14px;
+      font-weight: bold;
+      top: 50px;
+      left: 65px;
+      z-index: 4;
+      color: #bbb;
+      
+      &:active {
+        top: -10px;
+      }
+    }
+    
+    #game_progress {
+      position: relative;
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      top: 1px;
+      height: 68px;
+      background-color: #ffff66;
+      @include bordered(5px, 0, #000);
+      
+      &:active {
+        //top: 4px;
+      }
+    }
+  }
+  
+  #rack_wrapper {
+    height: $rack-height;
+    margin: 10px auto;
+    width: 612px;
+    z-index: 11;
+  
+    #dump {
+      float: left;
+      width: 90px;
+      height: $rack-height + 4px;
+      background-color: #a00;
+      line-height: $rack-height;
+      
+      border: {
+        style: solid;
+        width: 2px;
+        color: #ccc;
+      }
+      
+      @include border-top-right-radius(30px);
+      @include border-bottom-right-radius(30px);
+      @include box-shadow(#000, 2px, 2px, 5px, 0, false);
+      
+      .loading {
+        background-image: url(/images/ajax-loader.gif);
+        width: 32px;
+        height: 32px;
+        margin: 25px auto;
+        z-index: 3;
+        @include opacity(0.35);
+      }
+    }
+
+    #rack {
+      width: 496px;
+      height: $rack-height;
+      float: left;
+      padding: 4px 0 0 18px;
+      z-index: 11;
+      background-color: rgba(0, 0, 0, 0.65);
+      
+      @include box-shadow(#000, 2px, 2px, 5px, 0, false);
+      
+      border: {
+        style: solid;
+        width: 2px;
+        color: #ccc;
+      }
+      
+      @include border-top-left-radius(30px);
+      @include border-bottom-left-radius(30px);
+      
+      .tile {
+        margin: 2px;
+    
+        @include tile;
+        @include font-size(18px);
+      }
+    }
+  }
+}
+
+$chat-height: 120px;
+$chat-width: 575px;
+
+#chat_wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 110;
+  
+  #chat {
+    width: $chat-width;
+    height: $chat-height;
+    //margin: 0 0 8px 8px;
+    margin: 0 auto;
+  
+    #chatter {
+      height: 85px;
+      width: $chat-width - 1px;
+      overflow-y: scroll;
+      background-color: #bbb;
+      margin-bottom: 2px;
+      
+      @include box-shadow(#fff, 2px, 2px, 5px, 0, false);
+      @include opacity(0.80);
+      @include bordered(4px, 2px);
+      
+      .message .name {
+        font-weight: bold;
+      }
+    }
+  
+    #chat_input {
+      width: $chat-width - 1px;
+      font-size: 18px;
+      height: 18px;
+    }
+  }
+}
+
+#game_status_wrapper {
+  display: none;
+  position: fixed;
+  bottom: $chat-height - 3px;
+  width: 100%;
+  z-index: 110;
+  
+  #game_status {
+    margin: 0 auto;
+    background-color: #bbb;
+    width: $chat-width - 5px;
+    height: 60px;
+    
+    border: {
+      style: solid;
+      width: 2px;
+      color: #ccc;
+    }
+  
+    @include box-shadow(#fff, 2px, 2px, 5px, 0, false);
+    @include border-top-left-radius(30px);
+    @include border-top-right-radius(30px);
+    
+    #players_ready_wrapper {
+      font-size: 45px;
+      color: #000;
+      text-align: center;
+      
+      #ready {
+        font-size: 40px;
+        @include bordered(4px, 2px);
+        
+        &.not_ready:hover {
+          background-color: #0b0;
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+
+$minitile-dim: 10px;
+$player-width: 165px;
+
+#players_left {
+  left: 0;
+  margin-left: 8px;
+}
+
+#players_right {
+  right: 0;
+  margin-right: 10px;
+}
+
+#players_left, #players_right {
+  position: fixed;
+  width: $player-width;
+  margin-top: 95px;
+  top: 0;
+  z-index: 11;
+  
+  .tile {
+    width: $minitile-dim;
+    height: $minitile-dim;
+    cursor: default;
+    float: left;
+    
+    .letter {
+      font-size: 11px;
+      line-height: 11px;
+    }
+  }
+  
+  .player {
+    display: block;
+    float: left;
+    width: $player-width;
+    padding-top: 10px;
+    
+    .name_wrapper {
+      text-align: center;
+      position: relative;
+      top: 8px;
+      z-index: 12;
+      
+      .name {
+        display: inline;
+        margin: 0;
+        background: #fff;
+        color: #800;
+        font-weight: bold;
+        padding: 2px 7px;
+        @include bordered(12px, 2px);
+      
+        height: 16px;
+        font-size: 12px;
+
+        &.online {
+          color: #080;
+        }
+      }
+    }
+    
+    .board_wrapper {
+      display: block;
+      width: $player-width;
+      height: $player-width;
+      float: left;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.65);
+      @include bordered(3px, 2px);
+      @include box-shadow(#000, 2px, 2px, 8px, 0, false);
+      z-index: 11;
+      
+      .board {
+        position: relative;
+        width: $minitile-dim*60;
+        height: $minitile-dim*60;
+        
+        .tile {
+          .letter {
+            font-size: $minitile-dim;
+            line-height: $minitile-dim;
+          }
+        }
+      }
+    }
+    
+    .letter_wrapper {
+      width: $player-width;
+      height: 28px;
+      overflow: hidden;
+      z-index: 4;
+      background-color: rgba(0, 0, 0, 0.15);
+      @include bordered(3px, 0px);
+      padding-top: 2px;
+      margin-left: 3px;
+      
+      .letters {
+        margin: 0 5px;
+        
+        .tile {
+          margin: 1px 1px;
+        }
+      }
+    }
+  }
+}
+
+#not_started_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: #444;
+  cursor: default;
+  overflow: hidden;
+  @include opacity(0.75);
+  zoom: 1;
+}
+
+#winner_overlay, #how_to_play {
+  display: none;
+  background-color: #fff;
+  @include bordered(6px, 2px);
+  z-index: 101;
+}
+
+#winner_overlay {
+  width: 600px;
+  height: 400px;
+  
+  .name_wrapper {
+    text-align: center;
+    position: relative;
+    top: 8px;
+    height: 50px;
+    
+    .name {
+      display: inline;
+      margin: 0;
+      background: #fff;
+      color: #800;
+      padding: 2px 7px;
+    }
+    
+    .big.name, .selected.name {
+      font-weight: bold;
+    }
+    
+    .big.name {
+      font-size: 35px;
+      @include bordered(12px, 2px);
+    }
+    
+    .winner.name {
+      @include bordered(12px, 2px, #ffd700);
+    }
+  }
+  
+  .names.name_wrapper {
+    height: 30px;
+  }
+    
+  .board_wrapper {
+    width: 597px;
+    height: 317px;
+    overflow: hidden;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.75);
+    @include bordered(6px, 2px);
+    
+    .board {
+      display: none;
+      cursor: move;
+      position: relative;
+      width: $num-tiles*$winner-tile-dim;
+      height: $num-tiles*$winner-tile-dim;
+      //background: #5F2D06 url('/images/grid_bg_winner.png') repeat left top;
+      z-index: 4;
+      //@include bordered;
+
+      .tile {
+        position: absolute;
+        width: $winner-tile-dim;
+        height: $winner-tile-dim;
+        //cursor: default;
+        
+        .letter {
+          font-size: $winner-tile-dim;
+          line-height: $winner-tile-dim;
+        }
+      }
+    }
+  }
+}
+
+#how_to_play {
+  width: 620px;
+  padding: 10px;
+  
+  h2 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 3px;
+    padding-bottom: 4px;
+  }
+  
+  p {
+    padding: 4px;
+  }
+  
+  a {
+    padding: 0 2px;
+    font-weight: bold;
+    @include bordered(4px, 1px);
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#flashes {
+  display: none;
+}
+
+.tooltip {
+  display: none;
+  background: transparent url(/images/black_arrow_bottom.png);
+  height: 70px;
+  width: 160px;
+  padding: 25px;
+  position: absolute;
+  z-index: 105;
+  text-align: center;
+  
+  span {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 80px;
+  }
+}
+
+.effect_text {
+  color: #fff;
+  position: absolute;
+  font-size: 20px;
+  line-height: 20px;
+  z-index: 8888;
+}

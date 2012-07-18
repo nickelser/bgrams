@@ -1,0 +1,241 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 14, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 17, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+/* line 19, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 21, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+/* line 23, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 25, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: "" "";
+}
+/* line 96, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+}
+
+/* line 27, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 11, ../../../app/stylesheets/_fonts.scss */
+body {
+  font-size: 13px;
+  font-family: sans-serif;
+  line-height: 1.231;
+  *font-size: small;
+}
+
+/* line 18, ../../../app/stylesheets/_fonts.scss */
+select, input, textarea, button {
+  font: 99% sans-serif;
+}
+
+/* line 23, ../../../app/stylesheets/_fonts.scss */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif;
+}
+
+/* line 18, ../../../app/stylesheets/boilerplate.scss */
+body, select, input, textarea {
+  color: #444444;
+}
+
+/* line 22, ../../../app/stylesheets/boilerplate.scss */
+a, a:active, a:visited {
+  color: #607890;
+}
+
+/* line 23, ../../../app/stylesheets/boilerplate.scss */
+a:hover {
+  color: #003366;
+}
+
+/* line 25, ../../../app/stylesheets/boilerplate.scss */
+ul, ol {
+  margin-left: 1.8em;
+}
+
+/* line 26, ../../../app/stylesheets/boilerplate.scss */
+ol {
+  list-style-type: decimal;
+}
+
+/* line 28, ../../../app/stylesheets/boilerplate.scss */
+td, td img {
+  vertical-align: top;
+}
+
+/* line 30, ../../../app/stylesheets/boilerplate.scss */
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  bottom: -0.25em;
+}
+
+/* line 32, ../../../app/stylesheets/boilerplate.scss */
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  top: -0.5em;
+}
+
+/* line 34, ../../../app/stylesheets/boilerplate.scss */
+textarea {
+  overflow: auto;
+}
+
+/* line 65, ../../../app/stylesheets/boilerplate.scss */
+a:hover, a:active {
+  outline: none;
+}
+
+/* line 70, ../../../app/stylesheets/boilerplate.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+  padding: 15px;
+}
+
+/* line 79, ../../../app/stylesheets/boilerplate.scss */
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+/* line 80, ../../../app/stylesheets/boilerplate.scss */
+input[type="checkbox"] {
+  vertical-align: bottom;
+}
+
+/* line 81, ../../../app/stylesheets/boilerplate.scss */
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline;
+}
+
+/* line 82, ../../../app/stylesheets/boilerplate.scss */
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+/* line 87, ../../../app/stylesheets/boilerplate.scss */
+label, input[type="button"], input[type="submit"], input[type="image"], button {
+  cursor: pointer;
+}
+
+/* line 92, ../../../app/stylesheets/boilerplate.scss */
+button, input, select, textarea {
+  margin: 0;
+}
+
+/* line 99, ../../../app/stylesheets/boilerplate.scss */
+::-moz-selection {
+  background: #bbbbbb;
+  color: white;
+  text-shadow: none;
+}
+
+/* line 100, ../../../app/stylesheets/boilerplate.scss */
+::selection {
+  background: #bbbbbb;
+  color: white;
+  text-shadow: none;
+}
+
+/* line 105, ../../../app/stylesheets/boilerplate.scss */
+a:link {
+  -webkit-tap-highlight-color: #bbbbbb;
+}
+
+/* line 116, ../../../app/stylesheets/boilerplate.scss */
+button {
+  width: auto;
+  overflow: visible;
+}
+
+/* line 120, ../../../app/stylesheets/boilerplate.scss */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 122, ../../../app/stylesheets/boilerplate.scss */
+.ie6 legend, .ie7 legend {
+  margin-left: -7px;
+}
+
+/* line 127, ../../../app/stylesheets/boilerplate.scss */
+nav ul, nav li {
+  margin: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+/* line 12, ../../../app/stylesheets/screen.scss */
+.notice-item.error, .notice-item.alert {
+  background-color: #c00;
+}
+
+/* line 16, ../../../app/stylesheets/screen.scss */
+.notice-item.success {
+  color: #000;
+  background-color: #0c0;
+}
+
+/* line 21, ../../../app/stylesheets/screen.scss */
+#user_status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 3px;
+}
+/* line 27, ../../../app/stylesheets/screen.scss */
+#user_status .username {
+  font-weight: bold;
+}

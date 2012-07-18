@@ -1,0 +1,56 @@
+package_assets:         on
+embed_assets:           datauri
+compress_assets:        on
+gzip_assets:            off
+template_function:      _.template
+template_namespace:     _templates
+package_path:           assets
+javascript_compressor:  uglifier 
+ 
+javascripts:
+  index:
+    - public/javascripts/jquery.notice.js
+    - public/javascripts/underscore.js
+    - public/javascripts/overlay.js
+    - public/javascripts/expose.js
+    - public/javascripts/compiled/common.js
+    - public/javascripts/compiled/index.js
+  index_dev:
+    - public/javascripts/jquery.js
+    - public/javascripts/jquery.notice.js
+    - public/javascripts/underscore.js
+    - public/javascripts/overlay.js
+    - public/javascripts/expose.js
+  game:
+    - public/javascripts/pusher.js
+    - public/javascripts/jquery-ui.js
+    - public/javascripts/jquery-ui.multidraggable.js
+    - public/javascripts/jquery.notice.js
+    - public/javascripts/underscore.js
+    - public/javascripts/overlay.js
+    - public/javascripts/expose.js
+    - public/javascripts/tooltip.js
+    - public/javascripts/compiled/common.js
+    - public/javascripts/compiled/game.js
+  game_dev:
+    - public/javascripts/jquery.js
+    - public/javascripts/pusher.js
+    - public/javascripts/jquery-ui.js
+    - public/javascripts/jquery-ui.multidraggable.js
+    - public/javascripts/jquery.notice.js
+    - public/javascripts/overlay.js
+    - public/javascripts/expose.js
+    - public/javascripts/tooltip.js
+    - public/javascripts/underscore.js
+    
+stylesheets:
+  app:
+    - public/stylesheets/compiled/login.css
+    - public/stylesheets/compiled/screen.css
+    - public/stylesheets/jquery.notice.css
+  ie:
+    - public/stylesheets/compiled/ie.css
+  index:
+    - public/stylesheets/compiled/index.css
+  game:
+    - public/stylesheets/compiled/game.css

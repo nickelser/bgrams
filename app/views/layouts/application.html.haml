@@ -1,0 +1,34 @@
+!!! 5
+%html
+  %head
+    %title bgrams
+    = csrf_meta_tag
+    = include_stylesheets 'app'
+    = yield :stylesheets
+    /[if IE]
+      = include_stylesheets 'ie'
+    = yield :head_js
+  %body{:class => "#{browser_class}"}
+    #user_status
+      - if player_signed_in?
+        %span{:class => 'username'}= current_player.username
+        (
+        %span= link_to 'sign out', '/logout'
+        )
+      - else
+        not signed in
+        (
+        %span= link_to 'sign in', '#', :id => 'sign_in_link'
+        )
+        
+    #flashes
+      #notice= notice
+      #alert= alert
+    #content= yield
+    - if false && Rails.env.production?
+      :javascript
+        var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E')); </script> <script type='text/javascript'> try {  var mpmetrics = new MixpanelLib('8ab723c5ee5bba50b4f01cbd6eea5755'); } catch(err) { null_fn = function () {}; var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; }
+    - else
+      :javascript
+        var mpmetrics = { track: function() {} };
+    = yield :tail_js

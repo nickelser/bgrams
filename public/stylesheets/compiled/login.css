@@ -1,0 +1,128 @@
+/* line 1, ../../../app/stylesheets/login.scss */
+.firefox #login_box {
+  height: 300px;
+}
+/* line 4, ../../../app/stylesheets/login.scss */
+.firefox #login_box .close {
+  right: 35px;
+}
+
+/* line 9, ../../../app/stylesheets/login.scss */
+#login_box {
+  display: none;
+  background: transparent url(/images/login_overlay.png) no-repeat top left;
+  padding: 20px;
+  font-size: 13px;
+  height: 230px;
+  width: 550px;
+}
+/* line 17, ../../../app/stylesheets/login.scss */
+#login_box #login_message {
+  font-size: 15px;
+  font-weight: bold;
+  width: 200px;
+  margin: 0 auto;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  color: #a00;
+  height: 20px;
+}
+/* line 28, ../../../app/stylesheets/login.scss */
+#login_box #log_in, #login_box #sign_up {
+  width: 250px;
+  display: block;
+  padding: 3px;
+}
+/* line 34, ../../../app/stylesheets/login.scss */
+#login_box #log_in {
+  float: left;
+  padding-left: 30px;
+}
+/* line 39, ../../../app/stylesheets/login.scss */
+#login_box #sign_up {
+  float: right;
+}
+/* line 43, ../../../app/stylesheets/login.scss */
+#login_box label {
+  display: block;
+  padding: 2px 0 0 2px;
+  font-weight: bold;
+  color: #aaa;
+}
+/* line 50, ../../../app/stylesheets/login.scss */
+#login_box h3 {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 4px;
+}
+/* line 56, ../../../app/stylesheets/login.scss */
+#login_box p {
+  padding: 2px;
+}
+/* line 60, ../../../app/stylesheets/login.scss */
+#login_box button {
+  margin: 10px;
+  display: block;
+}
+/* line 65, ../../../app/stylesheets/login.scss */
+#login_box .checkbox_label {
+  float: left;
+  padding-right: 6px;
+}
+/* line 70, ../../../app/stylesheets/login.scss */
+#login_box .close {
+  background: transparent url(/images/overlay_close_hover.png) no-repeat right top;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+}
+/* line 78, ../../../app/stylesheets/login.scss */
+#login_box .close:hover {
+  background-position: right bottom;
+}
+/* line 82, ../../../app/stylesheets/login.scss */
+#login_box .error {
+  display: block;
+  color: #c00;
+  padding-left: 2px;
+}
+/* line 88, ../../../app/stylesheets/login.scss */
+#login_box #fb_login {
+  margin-top: 30px;
+}
+
+/* line 95, ../../../app/stylesheets/login.scss */
+a.fb_button {
+  background: #29447e url(/images/connect_sprite.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 0 0 1px;
+  text-decoration: none;
+  outline: none;
+  background-position: left -188px;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+/* line 108, ../../../app/stylesheets/login.scss */
+.fb_button .fb_button_text {
+  background: #5f78ab url(/images/connect_sprite.png);
+  border-top: solid 1px #879AC0;
+  border-bottom: solid 1px #1A356E;
+  color: white;
+  display: block;
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+  font-weight: bold;
+  padding: 2px 6px 3px 6px;
+  margin: 1px 1px 0 21px;
+  text-shadow: none;
+}
+
+/* line 121, ../../../app/stylesheets/login.scss */
+.fb_button:hover .fb_button_text {
+  text-decoration: underline;
+}

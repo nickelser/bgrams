@@ -1,0 +1,27 @@
+en:
+  errors:
+    messages:
+      not_found: "not found"
+
+  devise:
+    failure:
+      unauthenticated: 'sorry, you gotta sign in first'
+      invalid: 'wrong username/password'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+    sessions:
+      signed_in: 'signed in!'
+      signed_out: 'signed out!'
+    passwords:
+      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
+      updated: 'Your password was changed successfully. You are now signed in.'
+    registrations:
+      signed_up: 'hooray, you signed up.'
+      updated: 'You updated your account successfully.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+    mailer:
+      reset_password_instructions:
+        subject: 'y u no remember password?'
